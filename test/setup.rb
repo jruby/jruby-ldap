@@ -3,8 +3,8 @@ require 'ldap'
 
 $LDAP_test_host = 'localhost'
 $LDAP_test_port = LDAP::LDAP_PORT
-$LDAP_test_username = 'cn=olabini'
-$LDAP_test_password = 'd3$tRuct1on'
+$LDAP_test_username = 'cn=your_username'
+$LDAP_test_password = 'secret'
 
 def delete_tree(c, name)
   c.search(name, LDAP::LDAP_SCOPE_ONELEVEL, "(objectClass=*)", ['dn']) do |v|

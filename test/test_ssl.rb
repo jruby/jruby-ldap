@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'setup'
 
-class TestSSLAdd < Test::Unit::TestCase
+class TestSSLAdd# < Test::Unit::TestCase
   def setup
     @conn = LDAP::SSLConn.new($LDAP_test_host, LDAP::LDAPS_PORT)
     @conn.set_option(LDAP::LDAP_OPT_PROTOCOL_VERSION, 3)

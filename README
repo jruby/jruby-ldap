@@ -1,0 +1,14 @@
+JRuby/LDAP
+-----------
+
+This is an interface compatible port of Ruby/LDAP - to allow binary LDAP usage through JRuby. This implementation is pure Ruby, but uses the Java Integration features of JRuby to access the JNDI libraries and through these implement the correct functionality.
+
+Many classes are missing right now, but the base functionality should be there.
+
+
+Usage
+-----
+require 'rubygems'
+require 'ldap'
+
+And then use it like all tutorials of Ruby/LDAP show you.
