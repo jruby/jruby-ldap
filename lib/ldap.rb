@@ -70,7 +70,7 @@ module LDAP
   end
   
   def self.configuration(attrs = { })
-    @environment.update attrs
+    @environment.merge attrs
   end
 end
 
