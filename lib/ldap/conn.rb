@@ -12,7 +12,7 @@ module LDAP
       raise "NOT IMPLEMENTED"
     end
     
-    def modrdn(*args)
+    def modrdn(dn, new_rdn, delete_old_rdn)
       raise "NOT IMPLEMENTED"
     end
 

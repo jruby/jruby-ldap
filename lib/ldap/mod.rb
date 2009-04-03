@@ -59,7 +59,7 @@ module LDAP
     def to_java_attribute
       v = BasicAttribute.new(self.mod_type)
       binary = mod_op & LDAP::LDAP_MOD_BVALUES
-      if binary 
+      if binary != 0
         self.mod_vals.each do |val|
           v.add(val.to_java_bytes)
         end
