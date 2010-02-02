@@ -1,9 +1,5 @@
 module LDAP  
   module ConnImplementation
-    def compare(*args)
-      raise "NOT IMPLEMENTED"
-    end
-
     def controls(*args)
       raise "NOT IMPLEMENTED"
     end
