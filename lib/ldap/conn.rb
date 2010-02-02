@@ -12,8 +12,35 @@ module LDAP
       raise "NOT IMPLEMENTED"
     end
     
+    # Modify the RDN of the entry with DN, +dn+, giving it the new RDN,
+    # +new_rdn+. If +delete_old_rdn+ is *true*, the old RDN value will be deleted
+    # from the entry.
     def modrdn(dn, new_rdn, delete_old_rdn)
-      raise "NOT IMPLEMENTED"
+      begin 
+        if delete_old_rdn
+          @context.rename(dn, new_rdn)
+        else
+          obj = @context.lookup(dn)
+          @context.bind(new_rdn, obj)
+        end
+        @err = 0
+      rescue javax.naming.NameAlreadyBoundException => e
+        @err = 68
+      rescue javax.naming.InvalidNameException => e
+        @err = 34
+      rescue javax.naming.NoPermissionException => e
+        @err = 50
+      rescue javax.naming.directory.SchemaViolationException => e
+        @err = 65
+      rescue javax.naming.NamingException => e
+        @err = 21
+      rescue javax.naming.NoPermissionException => e
+        @err = 50
+      rescue javax.naming.NamingException => e
+        @err = -1
+      end
+      raise LDAP::ResultError.wrap(LDAP::err2string(@err), e) if @err != 0
+      self
     end
 
     def perror(*args)
