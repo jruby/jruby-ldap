@@ -26,9 +26,9 @@ module LDAP
 
       def ruby_mod_to_java(mod_op)
         case (mod_op&~LDAP::LDAP_MOD_BVALUES)
-          when LDAP::LDAP_MOD_ADD: DirContext::ADD_ATTRIBUTE
-          when LDAP::LDAP_MOD_REPLACE: DirContext::REPLACE_ATTRIBUTE
-          when LDAP::LDAP_MOD_DELETE: DirContext::REMOVE_ATTRIBUTE
+          when LDAP::LDAP_MOD_ADD then DirContext::ADD_ATTRIBUTE
+          when LDAP::LDAP_MOD_REPLACE then DirContext::REPLACE_ATTRIBUTE
+          when LDAP::LDAP_MOD_DELETE then DirContext::REMOVE_ATTRIBUTE
           else raise LDAP::Error, "can't handle operation #{mod_op}"
         end
       end
