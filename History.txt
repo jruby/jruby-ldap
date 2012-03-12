@@ -1,0 +1,7 @@
+== 0.0.2 (03/12/12)
+
+- 1.9 compatibility (thanks Arkadiy Kraportov)
+
+== 0.0.1 (10/09/07)
+
+- Initial release.
