@@ -1,4 +1,5 @@
-
+require 'rubygems'
+require 'bundler/setup'
 require 'ldap'
 require './username_and_password'
 
