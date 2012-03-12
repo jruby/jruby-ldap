@@ -1,6 +1,5 @@
-require 'bundler/setup'
-require 'bundler/gem_tasks'
 require 'rake/testtask'
+require 'bundler/gem_tasks'
 
 task :default => [:test, :build]
 
