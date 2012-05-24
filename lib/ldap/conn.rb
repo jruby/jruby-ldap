@@ -88,6 +88,9 @@ module LDAP
       rescue javax.naming.NoPermissionException => e
         @err = 50
         raise LDAP::ResultError.wrap(LDAP::err2string(@err), e)
+      rescue javax.naming.AuthenticationException => e
+        @err = 49
+        raise LDAP::ResultError.wrap(LDAP::err2string(@err), e)
       rescue javax.naming.NamingException => e
         @err = -1
         raise LDAP::ResultError.wrap(LDAP::err2string(@err), e)
