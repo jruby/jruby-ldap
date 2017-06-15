@@ -1,5 +1,17 @@
 module LDAP  
   module ConnImplementation
+
+    if RUBY_PLATFORM =~ /^java.*/i
+      class LDAP::Entry
+        def to_hash
+           h = {}
+           get_attributes.each { |a| h[a.to_sym] = self[a] }
+           h[:dn] = [dn]
+           h
+        end
+      end
+    end
+
     def controls(*args)
       raise "NOT IMPLEMENTED"
     end
